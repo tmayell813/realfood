@@ -1,0 +1,781 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>RealProtein.gov - Official Government Nutrition Guidelines</title>
+    <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Courier+Prime:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --beef-red: #FF0000;
+            --dairy-cream: #FFFF00;
+            --muscle-tan: #FF8C00;
+            --govt-blue: #00FFFF;
+            --text-dark: #000000;
+            --neon-pink: #FF00FF;
+            --neon-green: #00FF00;
+            --electric-purple: #9D00FF;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Courier Prime', monospace;
+            background: var(--dairy-cream);
+            color: var(--text-dark);
+            line-height: 1.6;
+        }
+        
+        /* Official Government Header */
+        .govt-banner {
+            background: var(--govt-blue);
+            color: white;
+            padding: 8px 20px;
+            font-size: 11px;
+            text-align: center;
+            border-bottom: 3px solid var(--beef-red);
+        }
+        
+        header {
+            background: linear-gradient(135deg, #FF0000 0%, #FF00FF 50%, #FF8C00 100%);
+            padding: 40px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+            box-shadow: 0 4px 20px rgba(255,0,255,0.5);
+            animation: headerPulse 3s ease-in-out infinite;
+        }
+        
+        @keyframes headerPulse {
+            0%, 100% { box-shadow: 0 4px 20px rgba(255,0,255,0.5); }
+            50% { box-shadow: 0 4px 40px rgba(255,255,0,0.8); }
+        }
+        
+        header::before {
+            content: '🥩';
+            position: absolute;
+            font-size: 200px;
+            opacity: 0.1;
+            top: -40px;
+            left: -20px;
+            animation: float 6s ease-in-out infinite;
+        }
+        
+        header::after {
+            content: '🥛';
+            position: absolute;
+            font-size: 180px;
+            opacity: 0.1;
+            bottom: -50px;
+            right: -30px;
+            animation: float 7s ease-in-out infinite;
+        }
+        
+        @keyframes float {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-20px); }
+        }
+        
+        h1 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 4.5em;
+            color: white;
+            text-shadow: 3px 3px 0 rgba(0,0,0,0.3);
+            margin-bottom: 10px;
+            letter-spacing: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .tagline {
+            font-size: 1.2em;
+            color: var(--dairy-cream);
+            font-weight: bold;
+            position: relative;
+            z-index: 1;
+            margin-top: 10px;
+        }
+        
+        .sponsor-badge {
+            background: rgba(255,255,255,0.2);
+            border: 2px solid white;
+            padding: 8px 16px;
+            display: inline-block;
+            margin-top: 15px;
+            font-size: 0.85em;
+            border-radius: 4px;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 20px;
+        }
+        
+        .hero-section {
+            text-align: center;
+            margin-bottom: 60px;
+            animation: fadeIn 1s ease-in;
+        }
+        
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        .hero-section h2 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 3em;
+            color: var(--beef-red);
+            margin-bottom: 20px;
+            letter-spacing: 2px;
+        }
+        
+        .bicep-section {
+            background: white;
+            border: 4px solid var(--beef-red);
+            border-radius: 12px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+            position: relative;
+        }
+        
+        .bicep-section h3 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 2.5em;
+            color: var(--beef-red);
+            text-align: center;
+            margin-bottom: 30px;
+            letter-spacing: 3px;
+        }
+        
+        .food-bicep {
+            display: flex;
+            align-items: flex-end;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            position: relative;
+        }
+        
+        .bicep-container {
+            position: relative;
+            width: 280px;
+            height: 400px;
+        }
+        
+        .bicep-muscle {
+            width: 220px;
+            height: 220px;
+            background: radial-gradient(ellipse at 50% 40%, #FFD700 0%, #FF8C00 40%, #FF4500 80%);
+            border-radius: 50% 50% 48% 48% / 55% 55% 45% 45%;
+            position: absolute;
+            top: 0;
+            left: 30px;
+            border: 3px solid #FF00FF;
+            box-shadow: inset -10px -15px 25px rgba(255,0,255,0.25), 
+                        inset 10px 10px 20px rgba(255,255,0,0.4),
+                        0 10px 30px rgba(255,0,255,0.5),
+                        0 0 40px rgba(255,215,0,0.6);
+            animation: flex 3s ease-in-out infinite;
+        }
+        
+        .bicep-muscle::after {
+            content: '';
+            position: absolute;
+            top: -10px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 180px;
+            height: 100px;
+            background: radial-gradient(ellipse at center, #FFD700 0%, #FF8C00 50%, transparent 80%);
+            border-radius: 50%;
+            box-shadow: inset -8px -12px 20px rgba(255,0,255,0.3),
+                        inset 8px 8px 15px rgba(255,255,0,0.3);
+        }
+        
+        .bicep-forearm {
+            position: absolute;
+            bottom: 0;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 110px;
+            height: 210px;
+            background: linear-gradient(180deg, #FF8C00 0%, #FFD700 30%, #FF8C00 100%);
+            border-radius: 15px 15px 50px 50px;
+            border: 3px solid #FF00FF;
+            box-shadow: inset -8px -8px 15px rgba(255,0,255,0.2),
+                        inset 8px 8px 15px rgba(255,255,0,0.25),
+                        0 8px 20px rgba(255,0,255,0.5),
+                        0 0 30px rgba(255,215,0,0.4);
+            z-index: -1;
+        }
+        
+        @keyframes flex {
+            0%, 100% { transform: scale(1); }
+            50% { transform: scale(1.05); }
+        }
+        
+        .bicep-muscle::before {
+            content: '💪';
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            font-size: 80px;
+            opacity: 0.3;
+        }
+        
+        .food-tier {
+            position: absolute;
+            background: white;
+            border: 3px solid var(--beef-red);
+            border-radius: 8px;
+            padding: 15px 20px;
+            font-weight: bold;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            transition: transform 0.3s ease;
+        }
+        
+        .food-tier:hover {
+            transform: scale(1.1) rotate(-2deg);
+        }
+        
+        .tier-1 {
+            top: 25px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, var(--beef-red), #DC143C);
+            color: white;
+            font-size: 1.2em;
+        }
+        
+        .tier-2 {
+            top: 110px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+        }
+        
+        .tier-3 {
+            top: 270px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #87CEEB, #4682B4);
+        }
+        
+        .tier-4 {
+            top: 340px;
+            left: 50%;
+            transform: translateX(-50%);
+            background: linear-gradient(135deg, #90EE90, #228B22);
+            font-size: 0.85em;
+            opacity: 0.7;
+        }
+        
+        .guidelines {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+            margin: 40px 0;
+        }
+        
+        .guideline-card {
+            background: linear-gradient(135deg, #FFFF00 0%, #00FFFF 100%);
+            border: 4px solid var(--neon-pink);
+            border-radius: 8px;
+            padding: 30px;
+            box-shadow: 0 4px 15px rgba(255,0,255,0.5), 0 0 30px rgba(0,255,255,0.3);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+        
+        .guideline-card:hover {
+            transform: translateY(-5px) scale(1.05);
+            box-shadow: 0 8px 25px rgba(255,0,255,0.8), 0 0 50px rgba(0,255,255,0.6);
+        }
+        
+        .guideline-card h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.8em;
+            color: var(--beef-red);
+            margin-bottom: 15px;
+            letter-spacing: 1px;
+        }
+        
+        .guideline-card .emoji {
+            font-size: 3em;
+            display: block;
+            margin-bottom: 15px;
+        }
+        
+        .sponsor-section {
+            background: linear-gradient(135deg, #f0f0f0, #e0e0e0);
+            border: 2px dashed var(--beef-red);
+            border-radius: 8px;
+            padding: 30px;
+            margin: 40px 0;
+            text-align: center;
+        }
+        
+        .sponsor-section h4 {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.5em;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+            opacity: 0.7;
+            letter-spacing: 2px;
+        }
+        
+        .sponsors {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            flex-wrap: wrap;
+            align-items: center;
+        }
+        
+        .sponsor-logo {
+            background: white;
+            padding: 20px 30px;
+            border-radius: 8px;
+            font-weight: bold;
+            font-size: 1.2em;
+            box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+            border: 2px solid #ccc;
+        }
+        
+        footer {
+            background: var(--govt-blue);
+            color: white;
+            text-align: center;
+            padding: 30px 20px;
+            margin-top: 60px;
+        }
+        
+        footer p {
+            font-size: 0.9em;
+            opacity: 0.9;
+        }
+        
+        .disclaimer {
+            background: #FFF3CD;
+            border: 2px solid #FFA500;
+            border-radius: 8px;
+            padding: 20px;
+            margin: 40px 0;
+            font-size: 0.85em;
+            text-align: center;
+            font-style: italic;
+        }
+        
+        .steak-showcase {
+            background: linear-gradient(135deg, #9D00FF 0%, #FF00FF 50%, #FF0000 100%);
+            border: 5px solid #00FF00;
+            border-radius: 12px;
+            padding: 50px 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 30px rgba(0,255,0,0.5), 0 0 50px rgba(255,0,255,0.6);
+        }
+        
+        .steak-showcase h3 {
+            color: var(--dairy-cream) !important;
+        }
+        
+        .steak-gallery {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 30px;
+            margin: 30px 0;
+        }
+        
+        .steak-card {
+            background: linear-gradient(135deg, #FFFF00 0%, #FF8C00 100%);
+            border: 4px solid #00FFFF;
+            border-radius: 12px;
+            padding: 30px;
+            text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            box-shadow: 0 4px 15px rgba(0,255,255,0.5), 0 0 30px rgba(255,255,0,0.4);
+        }
+        
+        .steak-card:hover {
+            transform: translateY(-10px) scale(1.05);
+            box-shadow: 0 12px 40px rgba(0,255,255,0.8), 0 0 60px rgba(255,0,255,0.6);
+        }
+        
+        .steak-image {
+            font-size: 8em;
+            margin: 20px 0;
+            filter: drop-shadow(0 4px 8px rgba(255,0,255,0.6)) drop-shadow(0 0 20px rgba(255,255,0,0.8));
+            animation: sizzle 3s ease-in-out infinite, glow 2s ease-in-out infinite;
+        }
+        
+        @keyframes sizzle {
+            0%, 100% { transform: rotate(-2deg) scale(1); }
+            50% { transform: rotate(2deg) scale(1.05); }
+        }
+        
+        @keyframes glow {
+            0%, 100% { filter: drop-shadow(0 4px 8px rgba(255,0,255,0.6)) drop-shadow(0 0 20px rgba(255,255,0,0.8)); }
+            50% { filter: drop-shadow(0 4px 8px rgba(0,255,255,0.8)) drop-shadow(0 0 40px rgba(255,0,255,1)); }
+        }
+        
+        .steak-showcase p {
+            color: var(--dairy-cream);
+        }
+        
+        .steak-card p {
+            color: var(--text-dark);
+        }
+        
+        .testimonial-section {
+            background: white;
+            border: 4px solid var(--beef-red);
+            border-radius: 12px;
+            padding: 40px;
+            margin: 40px 0;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.15);
+        }
+        
+        .testimonial-card {
+            background: linear-gradient(135deg, var(--dairy-cream), #FFF8DC);
+            border-left: 5px solid var(--beef-red);
+            padding: 30px 40px;
+            border-radius: 8px;
+            max-width: 800px;
+            margin: 0 auto;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.1);
+        }
+        
+        .testimonial-quote {
+            font-size: 1.3em;
+            line-height: 1.6;
+            font-style: italic;
+            color: var(--text-dark);
+            margin-bottom: 20px;
+        }
+        
+        .testimonial-author {
+            font-family: 'Bebas Neue', sans-serif;
+            font-size: 1.4em;
+            color: var(--beef-red);
+            text-align: right;
+            letter-spacing: 1px;
+        }
+        
+        .popup-bubble {
+            position: fixed;
+            bottom: 30px;
+            right: 30px;
+            background: white;
+            border: 3px solid #228B22;
+            border-radius: 20px;
+            padding: 20px 25px;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+            max-width: 250px;
+            font-size: 0.9em;
+            animation: bobble 2s ease-in-out infinite, fadeInBubble 0.5s ease-out;
+            z-index: 1000;
+        }
+        
+        .popup-close {
+            position: absolute;
+            top: 8px;
+            right: 12px;
+            background: none;
+            border: none;
+            font-size: 1.3em;
+            color: #666;
+            cursor: pointer;
+            line-height: 1;
+            padding: 0;
+            width: 20px;
+            height: 20px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            transition: color 0.2s ease;
+        }
+        
+        .popup-close:hover {
+            color: #228B22;
+        }
+        
+        .popup-bubble::after {
+            content: '';
+            position: absolute;
+            bottom: -15px;
+            right: 40px;
+            width: 0;
+            height: 0;
+            border-left: 15px solid transparent;
+            border-right: 15px solid transparent;
+            border-top: 15px solid #228B22;
+        }
+        
+        .popup-bubble::before {
+            content: '';
+            position: absolute;
+            bottom: -10px;
+            right: 43px;
+            width: 0;
+            height: 0;
+            border-left: 12px solid transparent;
+            border-right: 12px solid transparent;
+            border-top: 12px solid white;
+            z-index: 1;
+        }
+        
+        @keyframes bobble {
+            0%, 100% { transform: translateY(0px); }
+            50% { transform: translateY(-10px); }
+        }
+        
+        @keyframes fadeInBubble {
+            from { opacity: 0; transform: translateY(20px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+        
+        @media (max-width: 768px) {
+            h1 { font-size: 3em; }
+            .hero-section h2 { font-size: 2em; }
+            .food-bicep { flex-direction: column; align-items: center; }
+            .bicep-container { width: 240px; height: 350px; }
+            .bicep-muscle { width: 190px; height: 190px; }
+            .bicep-forearm { height: 180px; width: 95px; }
+            .popup-bubble { bottom: 20px; right: 20px; max-width: 200px; font-size: 0.8em; }
+        }
+    </style>
+</head>
+<body>
+    <div class="govt-banner">
+        ⭐ AN OFFICIAL PARODY OF THE UNITED STATES GOVERMENT ⭐
+    </div>
+    
+    <header>
+        <h1>REALPROTEIN.GOV</h1>
+        <p class="tagline">Building Strong Americans Through Animal-Based Nutrition™</p>
+        <p class="tagline" style="margin-top: 5px; font-size: 1em;">Eat real food. Steak.</p>
+        <div class="sponsor-badge">
+            Brought to you in partnership with the National Beef Council
+        </div>
+    </header>
+    
+    <div class="container">
+        <div class="hero-section">
+            <h2>The Future of American Strength</h2>
+            <p style="font-size: 1.1em; max-width: 800px; margin: 0 auto;">
+                After extensive research* and consultation with industry experts, 
+                the USDA is proud to present the revolutionary <strong>Food Bicep™</strong> - 
+                a science-based† approach to optimal nutrition.
+            </p>
+        </div>
+        
+        <div class="bicep-section">
+            <h3>The Food Bicep™</h3>
+            <p style="text-align: center; margin-bottom: 30px; font-size: 1.1em;">
+                <strong>Forget the pyramid. Build muscle with science.</strong>
+            </p>
+            
+            <div class="food-bicep">
+                <div class="bicep-container">
+                    <div class="bicep-muscle">
+                        <div class="food-tier tier-1">
+                            🥩 RED MEAT<br>
+                            <span style="font-size: 0.8em;">(Unlimited Daily)</span>
+                        </div>
+                        <div class="food-tier tier-2">
+                            🥛 RAW DAIRY<br>
+                            <span style="font-size: 0.8em;">(At least 1 gallon)</span>
+                        </div>
+                        <div class="food-tier tier-3">
+                            🥓 PORK & POULTRY<br>
+                            <span style="font-size: 0.8em;">(Whenever hungry)</span>
+                        </div>
+                        <div class="food-tier tier-4">
+                            🥗 Everything Else<br>
+                            <span style="font-size: 0.7em;">(Optional garnish)</span>
+                        </div>
+                    </div>
+                    <div class="bicep-forearm"></div>
+                </div>
+            </div>
+            
+            <p style="text-align: center; font-size: 0.9em; margin-top: 30px; font-style: italic;">
+                *The size of each food group on the Bicep™ represents its importance to your daily strength goals.
+            </p>
+            <p style="text-align: center; font-size: 1.1em; margin-top: 15px; font-weight: bold; color: var(--beef-red);">
+                Eat real food. Steak.
+            </p>
+        </div>
+        
+        <div class="guidelines">
+            <div class="guideline-card">
+                <span class="emoji">🥩</span>
+                <h4>Beef: Nature's Multivitamin</h4>
+                <p>
+                    Red meat contains everything your body needs. Our friends at the 
+                    American Cattlemen's Association remind us that our ancestors didn't 
+                    count calories - they counted steaks.
+                </p>
+            </div>
+            
+            <div class="guideline-card">
+                <span class="emoji">🥛</span>
+                <h4>Raw Dairy: Unpasteurized Power</h4>
+                <p>
+                    Why would you cook milk? Real Americans drink their dairy the way 
+                    nature intended - straight from the glands. Rich in bacteria* that 
+                    your ancestors thrived on for millennia.
+                </p>
+            </div>
+            
+            <div class="guideline-card">
+                <span class="emoji">💪</span>
+                <h4>Protein First, Always</h4>
+                <p>
+                    Every meal should start and end with animal protein. Vegetables are 
+                    optional decorations. Remember: lions don't eat salad, and neither 
+                    should you. Heart disease does not exist.
+                </p>
+            </div>
+        </div>
+        
+        <div class="sponsor-section">
+            <h4>This Message Brought To You By</h4>
+            <div class="sponsors">
+                <div class="sponsor-logo" style="color: var(--beef-red);">
+                    🐄 NATIONAL BEEF COUNCIL
+                </div>
+                <div class="sponsor-logo" style="color: #4169E1;">
+                    🥛 AMERICAN DAIRY ALLIANCE
+                </div>
+                <div class="sponsor-logo" style="color: #FF69B4;">
+                    🐷 PORK PRODUCERS OF AMERICA
+                </div>
+            </div>
+        </div>
+        
+        <div class="bicep-section">
+            <h3>Key Recommendations</h3>
+            <ul style="list-style: none; padding: 0;">
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Breakfast:</strong> Steak and eggs. Raw milk to drink.
+                </li>
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Lunch:</strong> Ground beef. Maybe some cheese.
+                </li>
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Dinner:</strong> Larger steak. More raw milk.
+                </li>
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Snacks:</strong> Beef jerky, cheese sticks, butter (yes, just butter).
+                </li>
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Hydration:</strong> Raw milk counts as water. Don't be a soy boy.
+                </li>
+                <li style="margin: 20px 0; font-size: 1.1em;">
+                    ✓ <strong>Mindset:</strong> Don't be a bitch.
+                </li>
+            </ul>
+        </div>
+        
+        <div class="disclaimer">
+            <p>
+                <strong>DISCLAIMER:</strong> This is a satirical parody website. Please consult 
+                actual nutrition science and your healthcare provider for dietary advice. The real 
+                food pyramid (now MyPlate) recommends a balanced diet of fruits, vegetables, grains, 
+                proteins, and dairy. Consuming only animal products and raw dairy can be dangerous to 
+                your health. Stay safe, eat balanced, and don't take nutrition advice from parody websites.
+            </p>
+        </div>
+        
+        <div class="steak-showcase">
+            <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 2.5em; color: var(--beef-red); text-align: center; margin-bottom: 30px; letter-spacing: 2px;">
+                Premium American Beef
+            </h3>
+            <div class="steak-gallery">
+                <div class="steak-card">
+                    <div class="steak-image">🥩</div>
+                    <p style="font-weight: bold; margin-top: 10px;">Ribeye</p>
+                    <p style="font-size: 0.9em;">The Gold Standard</p>
+                </div>
+                <div class="steak-card">
+                    <div class="steak-image">🥩</div>
+                    <p style="font-weight: bold; margin-top: 10px;">T-Bone</p>
+                    <p style="font-size: 0.9em;">Two Cuts, One Strength</p>
+                </div>
+                <div class="steak-card">
+                    <div class="steak-image">🥩</div>
+                    <p style="font-weight: bold; margin-top: 10px;">Porterhouse</p>
+                    <p style="font-size: 0.9em;">For Real Americans</p>
+                </div>
+            </div>
+            <p style="text-align: center; margin-top: 20px; font-style: italic; font-size: 0.9em;">
+                *Images provided courtesy of the National Beef Council
+            </p>
+            <p style="text-align: center; margin-top: 15px; font-size: 1.3em; font-weight: bold; color: var(--dairy-cream); letter-spacing: 1px;">
+                Eat real food. Steak.
+            </p>
+        </div>
+        
+        <div class="testimonial-section">
+            <h3 style="font-family: 'Bebas Neue', sans-serif; font-size: 2em; color: var(--beef-red); text-align: center; margin-bottom: 25px; letter-spacing: 2px;">
+                What the Experts Say
+            </h3>
+            <div class="testimonial-card">
+                <p class="testimonial-quote">
+                    "Just eat real food. Get lots of sun. Stop going to work. Exercise. Cook. Make love."
+                </p>
+                <p class="testimonial-author">— RFK Jr.</p>
+            </div>
+        </div>
+        
+        <div class="disclaimer">
+            <p>
+                <strong>DISCLAIMER:</strong> This is a satirical parody website. Please consult 
+                actual nutrition science and your healthcare provider for dietary advice. The real 
+                food pyramid (now MyPlate) recommends a balanced diet of fruits, vegetables, grains, 
+                proteins, and dairy. Consuming only animal products and raw dairy can be dangerous to 
+                your health. Stay safe, eat balanced, and don't take nutrition advice from parody websites.
+            </p>
+        </div>
+    </div>
+    
+    <footer>
+        <p><strong>REALPROTEIN.GOV</strong></p>
+        <p>A Totally Real™ Government Initiative</p>
+        <p style="font-size: 0.75em; margin-top: 15px; opacity: 0.7;">
+            † "Science-based" as defined by our generous industry partners<br>
+            * Research funded by organizations with absolutely no conflicts of interest
+        </p>
+    </footer>
+    
+    <div class="popup-bubble" id="popupBubble">
+        <button class="popup-close" onclick="document.getElementById('popupBubble').style.display='none'">×</button>
+        <strong style="color: #228B22;">🥬 Psst...</strong><br>
+        Veggies are good too gay lol
+    </div>
+    
+    <script>
+        // Auto-hide popup after 5 seconds
+        setTimeout(function() {
+            var popup = document.getElementById('popupBubble');
+            if (popup) {
+                popup.style.transition = 'opacity 0.5s ease-out';
+                popup.style.opacity = '0';
+                setTimeout(function() {
+                    popup.style.display = 'none';
+                }, 500);
+            }
+        }, 5000);
+    </script>
+</body>
+</html>
